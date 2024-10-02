@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212;
+  color: #fff;
+  opacity: 0; /* Start hidden */
+  transform: translateY(100%); /* Start 100% below its original position */
+  animation: moveUp 1.5s ease-out forwards; /* 2-second animation */
+  overflow: hidden; /* Hide scrollbars during animation */
+}
+@font-face {
+  font-family: "MyPixelFont";
+  src: url("path/to/your-font.woff2") format("woff2"),
+    url("path/to/your-font.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.timer {
+  font-size: 1.2em; /* Adjust font size as needed */
+  color: white; /* Change text color */
+  font-family: monospace; /* Monospace font for better readability */
+  user-select: none;
+  cursor: text;
+}
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.nav-bar div a {
+  text-decoration: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #212121;
+  color: white;
+  border-radius: 20px;
+  border: 2px solid rgb(94, 86, 86);
+  text-transform: lowercase;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 1.5px;
+}
+.nav-bar div a:hover {
+  background-color: #121212;
+}
+
+.social-media div a {
+  color: rgb(94, 86, 86);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+}
+.social-media div a:hover {
+  color: #b3b3b3;
+}
+.social-media {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 18px;
+}
+/* image overlay */
+.image-container {
+  position: relative;
+  width: 300px; /* You can adjust the size as needed */
+  height: 400px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.explore-button {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border: 2px solid rgb(141, 118, 117);
+  border-radius: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.explore-button:hover {
+  backdrop-filter: blur(8px); /* Apply blur */
+
+  color: white;
+}
+
+@keyframes moveUp {
+  to {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0); /* End at its original position */
+  }
+}
+
+.albumsTitle {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: center;
+  letter-spacing: 1px;
+}
+/* youtube video */
+
+/* Hidden video section initially */
+#video-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centering the back button and video */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+}
+
+iframe {
+  width: 80%;
+  height: 70%;
+}
+/* Folder button at bottom left */
+.folder-menu {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.folder-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.menu-items {
+  display: none;
+  position: absolute;
+  left: 50px;
+  bottom: 0;
+  background-color: #121212;
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.menu-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-items li {
+  margin-bottom: 10px;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+}
+.menu-items a.active {
+  color: #58a6ff; /* Highlight on hover */
+}
+.menu-items a:hover {
+  color: #58a6ff; /* Highlight on hover */
+}
+
+@media (max-width: 768px) {
+  .timer {
+    font-size: 1em;
+    padding: 10px 0;
+  }
+
+  .image-container {
+    width: 40vh;
+  }
+  .folder-icon {
+    width: 45px;
+    height: 45px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .folder-menu {
+    width: 150px;
+    bottom: 80px;
+    left: 10px;
+  }
+}

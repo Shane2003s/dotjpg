@@ -1,0 +1,106 @@
+/* General Styles */
+body {
+  background-color: #121212;
+  color: white;
+  letter-spacing: 1.2px;
+  text-transform: lowercase;
+  font-family: "JetBrains Mono", monospace;
+  margin: 0; /* Remove default margin */
+  padding: 0;
+  transform: translateY(100%); /* Start 100% below its original position */
+  animation: moveUp 1.5s ease-out forwards; /* 2-second animation */
+  overflow: hidden; /* Hide scrollbars during animation */
+}
+@font-face {
+  font-family: "MyPixelFont";
+  src: url("path/to/your-font.woff2") format("woff2"),
+    url("path/to/your-font.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes moveUp {
+  to {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0); /* End at its original position */
+  }
+}
+
+.timer {
+  font-size: 1.2em;
+  color: white;
+  font-family: monospace;
+  user-select: none;
+  cursor: text;
+}
+
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #212121; /* Set a background color */
+  box-sizing: border-box;
+  z-index: 1000; /* Ensure nav is always on top */
+}
+
+.nav-bar div a {
+  text-decoration: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #212121;
+  color: white;
+  border-radius: 20px;
+  border: 2px solid rgb(94, 86, 86);
+  text-transform: lowercase;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 1.5px;
+}
+
+.nav-bar div a:hover {
+  background-color: #121212;
+}
+
+.firstSlideOfHistory {
+  padding: 100px 20px; /* Add padding for space from the nav */
+  text-align: center;
+  max-width: 1200px;
+  margin: auto; /* Center content */
+}
+
+.historyLogo {
+  max-width: 100%;
+  height: 200px;
+  user-select: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timer {
+    font-size: 1em;
+    padding: 10px 0;
+  }
+
+  .firstSlideOfHistory {
+    padding: 80px 20px; /* Adjust padding for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar div a {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .timer {
+    font-size: 0.8em;
+  }
+}
