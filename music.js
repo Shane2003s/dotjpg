@@ -37,7 +37,7 @@ const videoPlayer = document.getElementById("videoPlayer");
 // Show video section and play YouTube video
 playButton.addEventListener("click", function () {
   videoSection.style.display = "flex";
-  videoPlayer.src = "https://youtu.be/B9synWjqBn8?si=hfNEl9fT2LYJhobV"; // Fein travis scott
+  videoPlayer.src = "https://youtu.be/B9synWjqBn8?si=hfNEl9fT2LYJhobV"; // baby shark doo doo
 });
 
 // Hide video section and stop video
